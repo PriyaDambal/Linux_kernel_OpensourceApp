@@ -15,7 +15,7 @@ def run_command(command):
 # Function to clone a Git repository if the directory does not exist
 def git_clone(repo_url, directory):
     if not os.path.exists(directory):
-        run_command(['git', 'clone', repo_url, directory])
+        run_command(['git', 'clone', '--bare', '--filter=blob:none', repo_url, directory ])
         print(f"Repository cloned into {directory}")
     else:
         print(f"Directory {directory} already exists, skipping clone.")
